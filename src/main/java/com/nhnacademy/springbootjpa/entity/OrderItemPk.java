@@ -1,15 +1,16 @@
 package com.nhnacademy.springbootjpa.entity;
 
-// TODO #2: `OrderItem` Entity 클래스의 복합키 클래스인 `OrderItemPk` 클래스를 작성하세요.
-public class OrderItemPk {
-    public OrderItemPk(long orderId, int lineNumber) {
-    }
+import jakarta.persistence.Embeddable;
+import lombok.*;
 
-    public long getOrderId() {
-        return 0;
-    }
+import java.io.Serializable;
 
-    public int getLineNumber() {
-        return 0;
-    }
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@EqualsAndHashCode
+@Embeddable
+public class OrderItemPk implements Serializable {
+    private long orderId;
+    private int lineNumber;
 }
