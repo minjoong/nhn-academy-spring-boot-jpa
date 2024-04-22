@@ -1,35 +1,32 @@
 package com.nhnacademy.springbootjpa.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.time.ZonedDateTime;
 
-// TODO #2: `answer` 테이블과 매핑될 `Answer` Entity 클래스를 작성하세요.
-/*
- * create table answer
- * (
- *     id          bigint auto_increment
- *         primary key,
- *     question_id bigint   not null,
- *     content     text     not null,
- *     created_at  datetime not null
- * );
- */
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
 public class Answer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private long questionId;
+    private String content;
+    private ZonedDateTime createdAt;
+
     public Answer(long questionId, String content, ZonedDateTime createdAt) {
-    }
-
-    public long getId() {
-        return 0;
-    }
-
-    public long getQuestionId() {
-        return 0;
-    }
-
-    public String getContent() {
-        return null;
-    }
-
-    public ZonedDateTime getCreatedAt() {
-        return null;
+        this.questionId = questionId;
+        this.content = content;
+        this.createdAt = createdAt;
     }
 }
