@@ -28,8 +28,8 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     // where price between {price1} and {price2}
     void deleteAllByPriceBetween(long price1, long price2);
 
-    // TODO : #1 실습 - 아래 쿼리 결과가 나오도록 메서드를 추가하세요.
     // select *
     // from item
     // where price in (...)
+    List<Item> findAllByPriceIn(List<Long> prices);
 }
