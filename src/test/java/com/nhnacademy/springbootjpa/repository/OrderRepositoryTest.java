@@ -31,7 +31,6 @@ class OrderRepositoryTest {
         assertThat(order.getOrderedAt()).isEqualTo(ZonedDateTime.parse("2018-08-23T10:30:00+09:00"));
     }
 
-    // TODO #2: test case 를 통과시키세요.
     @Sql("order-test.sql")
     @Test
     void test() {
