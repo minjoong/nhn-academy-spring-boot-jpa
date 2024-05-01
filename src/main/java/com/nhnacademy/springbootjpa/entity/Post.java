@@ -6,7 +6,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-// TODO #1: `Post` Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
@@ -22,7 +21,8 @@ public class Post {
     @NotNull
     private String content;
 
-    @ManyToOne(optional = false)
+    // TODO #1: 영속성 전이 설정
+    @ManyToOne(cascade = CascadeType.PERSIST, optional = false)
     private Member member;
 
     public Post(String title, String content, Member member) {
