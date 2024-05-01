@@ -1,13 +1,13 @@
 package com.nhnacademy.springbootjpa.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -20,6 +20,10 @@ public class Member {
 
     @NotNull
     private String name;
+
+    // TODO #1: 일대다 연관 관계 설정(mappedBy를 사용하여 주인이 아님을 설정)
+    @OneToMany(mappedBy = "member")
+    private List<Post> posts = new ArrayList<>();
 
     public Member(String name) {
         this.name = name;

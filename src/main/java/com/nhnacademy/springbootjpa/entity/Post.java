@@ -6,7 +6,6 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-// TODO #1: `Post` Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
