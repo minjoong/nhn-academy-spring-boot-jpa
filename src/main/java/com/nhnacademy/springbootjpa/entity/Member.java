@@ -2,10 +2,11 @@ package com.nhnacademy.springbootjpa.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-// TODO #2: `Member` Entity에서 연관 관계 삭제
+// TODO #1: `Member` Entity에 양방향 연관 관계 설정
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -17,4 +18,8 @@ public class Member {
     @Setter
     @NotNull
     private String name;
+
+    @Setter
+    @OneToOne(mappedBy = "member")
+    private Locker locker;
 }
