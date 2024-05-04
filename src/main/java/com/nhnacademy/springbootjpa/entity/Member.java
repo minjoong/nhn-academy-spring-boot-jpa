@@ -21,11 +21,15 @@ public class Member {
     @NotNull
     private String name;
 
-    // TODO #1: 일대다 연관 관계 설정(mappedBy를 사용하여 주인이 아님을 설정)
-    @OneToMany(mappedBy = "member")
+    // TODO #1: 영속성 전이 설정
+    @OneToMany(mappedBy = "member", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, orphanRemoval = true)
     private List<Post> posts = new ArrayList<>();
 
     public Member(String name) {
         this.name = name;
+    }
+
+    public void addPost(Post post) {
+        posts.add(post);
     }
 }
