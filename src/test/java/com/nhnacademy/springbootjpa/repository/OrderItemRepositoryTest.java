@@ -15,7 +15,6 @@ import java.time.ZonedDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-// TODO #2: test case 수정
 @DataJpaTest
 class OrderItemRepositoryTest {
 
