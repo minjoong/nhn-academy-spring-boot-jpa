@@ -36,7 +36,6 @@ class ItemRepositoryTest {
         assertThat(item.getPrice()).isEqualTo(300L);
     }
 
-    // TODO #3: test case
     @Sql("order-item-test.sql")
     @Test
     void queryAllTest() throws JsonProcessingException {
