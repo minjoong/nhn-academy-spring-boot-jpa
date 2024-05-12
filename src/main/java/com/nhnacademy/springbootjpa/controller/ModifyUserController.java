@@ -19,7 +19,7 @@ public class ModifyUserController {
     @PutMapping("/users/{id}")
     public User modifyById(@PathVariable("id") String id, @Valid @RequestBody ModifyUserRequest request) {
         User user = userRepository.getById(id);
-        if (!userRepository.modifyById(user.getId(), request.password())) {
+        if (!userRepository.modifyById(user.getId(), request.password(), request.age())) {
             throw new UserModificationFailureException();
         }
         return userRepository.getById(id);

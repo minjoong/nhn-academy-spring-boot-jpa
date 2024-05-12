@@ -9,7 +9,7 @@ public interface UserRepository {
 
     User getById(String id);
 
-    boolean create(String id, String password);
+    boolean create(String id, String password, int age);
 
-    boolean modifyById(String id, String password);
+    boolean modifyById(String id, String password, int age);
 }

@@ -20,7 +20,7 @@ public class CreateUserController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/users")
     public User create(@Valid @RequestBody CreateUserRequest request) {
-        if (!userRepository.create(request.id(), request.password())) {
+        if (!userRepository.create(request.id(), request.password(), request.age())) {
             throw new UserCreationFailureException();
         }
 
