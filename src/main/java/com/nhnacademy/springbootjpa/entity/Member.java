@@ -2,11 +2,10 @@ package com.nhnacademy.springbootjpa.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-// TODO #1: `Member` Entity
+// TODO #2: `Member` Entity에서 연관 관계 삭제
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -18,8 +17,4 @@ public class Member {
     @Setter
     @NotNull
     private String name;
-
-    @Setter
-    @OneToOne
-    private Locker locker;
 }

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-// TODO #3: test case
+// TODO #3: test case 수정
 @DataJpaTest
 class OneToOneTest {
 
@@ -23,11 +23,11 @@ class OneToOneTest {
 
     @Test
     void test() {
-        Locker locker = new Locker(1L, "No.1 Locker");
-        lockerRepository.save(locker);
-
-        Member member = new Member(1L, "academy", locker);
+        Member member = new Member(1L, "academy");
         memberRepository.save(member);
+
+        Locker locker = new Locker(1L, "No.1 Locker", member);
+        lockerRepository.save(locker);
 
         entityManager.flush();
     }
