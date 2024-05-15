@@ -3,6 +3,7 @@ package com.nhnacademy.springbootjpa.entity;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,6 +18,10 @@ public class OrderItem {
     private OrderItemPk pk;
 
     // TODO #1: 다대일 관계 설정
+    @MapsId("orderId")
+    @ManyToOne(optional = false)
+    private Order order;
+
     @ManyToOne(optional = false)
     private Item item;
 

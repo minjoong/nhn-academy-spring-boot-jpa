@@ -15,7 +15,7 @@ insert into "order" (id, ordered_at)
 values (1, '2018-08-23 10:30:00'),
        (2, '2018-08-24 21:15:30');
 
-insert into order_item (order_id, line_number, item_id, quantity)
+insert into order_item ("order_id", line_number, item_id, quantity)
 values (1, 1, 1, 3),
        (1, 2, 2, 1),
        (1, 3, 3, 2),

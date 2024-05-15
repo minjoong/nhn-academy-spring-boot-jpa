@@ -59,6 +59,7 @@ class OrderItemRepositoryTest {
         OrderItem orderItem1 = orderItemRepository.save(
                 new OrderItem(
                         new OrderItemPk(order.getId(), 1),
+                        order,
                         item1,
                         10
                 )
@@ -67,6 +68,7 @@ class OrderItemRepositoryTest {
         OrderItem orderItem2 = orderItemRepository.save(
                 new OrderItem(
                         new OrderItemPk(order.getId(), 2),
+                        order,
                         item2,
                         3
                 )
