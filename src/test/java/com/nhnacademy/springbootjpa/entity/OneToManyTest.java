@@ -10,7 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 // TODO #2: test case
 @DataJpaTest
-class ManyToOneTest {
+class OneToManyTest {
 
     @Autowired
     private MemberRepository memberRepository;
@@ -25,9 +25,13 @@ class ManyToOneTest {
     void test() {
         Member member = memberRepository.save(new Member("academy"));
 
-        postRepository.save(new Post("제목 제목1", "내용 내용1", member));
-        postRepository.save(new Post("제목 제목2", "내용 내용2", member));
+        Post post1 = postRepository.save(new Post("제목 제목1", "내용 내용1"));
+        member.addPost(post1);
+
+        Post post2 = postRepository.save(new Post("제목 제목2", "내용 내용2"));
+        member.addPost(post2);
 
         entityManager.flush();
     }
+
 }
