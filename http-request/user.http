@@ -1,3 +1,7 @@
+// TODO #2: 다음 요청을 실행해서 결과를 확인합니다.
+### Find all users
+GET http://localhost:8080/users?page=1&size=3
+
 ### Get user(id = nhn)
 GET http://localhost:8080/users/nhn
 
