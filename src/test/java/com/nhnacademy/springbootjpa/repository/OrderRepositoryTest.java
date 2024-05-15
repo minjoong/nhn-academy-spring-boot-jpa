@@ -28,7 +28,7 @@ class OrderRepositoryTest {
         assertThat(orders).hasSize(2);
     }
 
-    // TODO #7: 실습 - 6번 항목까지 모두 완료하였으면 아래 테스트를 통과시키세요.
+    @Sql("order-item-test.sql")
     @Test
     void test() {
         List<Item> items1 = orderRepository.findAllByHavingOrderItemQuantityGreaterThan(4);
