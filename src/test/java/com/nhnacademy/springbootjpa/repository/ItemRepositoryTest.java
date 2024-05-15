@@ -33,7 +33,6 @@ class ItemRepositoryTest {
         assertThat(item.getPrice()).isEqualTo(300L);
     }
 
-    // TODO #4: test case
     @Sql("order-item-test.sql")
     @Test
     void test() {

@@ -11,7 +11,6 @@ import static com.nhnacademy.springbootjpa.entity.QItem.item;
 import static com.nhnacademy.springbootjpa.entity.QOrder.order;
 import static com.nhnacademy.springbootjpa.entity.QOrderItem.orderItem;
 
-// TODO #2: Custom Repository 구현
 @Transactional(readOnly = true)
 class ItemQuerydslRepositoryImpl extends QuerydslRepositorySupport implements ItemQuerydslRepository {
 
