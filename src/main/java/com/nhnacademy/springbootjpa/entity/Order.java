@@ -21,4 +21,8 @@ public class Order {
     private long id;
 
     private ZonedDateTime orderedAt;
+
+    public Order(ZonedDateTime orderedAt) {
+        this.orderedAt = orderedAt;
+    }
 }

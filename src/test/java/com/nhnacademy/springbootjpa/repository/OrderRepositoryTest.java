@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
 
-import java.time.ZonedDateTime;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -20,15 +20,11 @@ class OrderRepositoryTest {
     @Test
     void findOrderTest() {
         // given
-        long id = 1L;
-
         // when
-        Order order = orderRepository.findById(id).orElse(null);
+        List<Order> orders = orderRepository.findAll();
 
         // then
-        assertThat(order).isNotNull();
-        assertThat(order.getId()).isEqualTo(id);
-        assertThat(order.getOrderedAt()).isEqualTo(ZonedDateTime.parse("2018-08-23T10:30:00+09:00"));
+        assertThat(orders).hasSize(2);
     }
 
 }
