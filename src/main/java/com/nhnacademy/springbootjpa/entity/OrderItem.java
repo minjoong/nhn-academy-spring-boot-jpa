@@ -17,7 +17,6 @@ public class OrderItem {
     @EmbeddedId
     private OrderItemPk pk;
 
-    // TODO #1: 다대일 관계 설정
     @MapsId("orderId")
     @ManyToOne(optional = false)
     private Order order;
