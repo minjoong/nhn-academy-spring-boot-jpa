@@ -79,25 +79,35 @@ class OrderItemRepositoryTest {
         entityManager.flush();
     }
 
-    // TODO #1: 단일 Entity 조회 시
     @Sql("order-item-test.sql")
     @Test
     void findByIdTest() {
         itemRepository.findById(1L);
     }
 
-    // TODO #2: 여러 개의 Entity 조회 시
     @Sql("order-item-test.sql")
     @Test
     void findAllTest() {
         itemRepository.findAll();
     }
 
-    // TODO #3: 여러 개의 Entity 조회 + 객체 그래프 탐색
     @Sql("order-item-test.sql")
     @Test
     void findAllTest2() {
         IntSummaryStatistics statistics = itemRepository.findAll()
+                .stream()
+                .map(Item::getOrderItems)
+                .flatMap(Collection::stream)
+                .collect(Collectors.summarizingInt(OrderItem::getQuantity));
+
+        assertThat(statistics.getSum()).isEqualTo(17);
+    }
+
+    // TODO #2: test case
+    @Sql("order-item-test.sql")
+    @Test
+    void findAllByFetchJoinTest() {
+        IntSummaryStatistics statistics = itemRepository.findAllWithAssociation()
                 .stream()
                 .map(Item::getOrderItems)
                 .flatMap(Collection::stream)
