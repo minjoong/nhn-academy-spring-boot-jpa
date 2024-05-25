@@ -6,7 +6,6 @@ import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-// TODO #1: `Member` Entity에 양방향 연관 관계 설정
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
