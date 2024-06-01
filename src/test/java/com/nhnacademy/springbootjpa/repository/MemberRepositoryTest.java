@@ -17,7 +17,6 @@ class MemberRepositoryTest {
     @Autowired
     private MemberRepository memberRepository;
 
-    // TODO #2: 아래 테스트 결과에서 호출하는 쿼리를 확인하세요.
     @Sql("member-repository-test.sql")
     @Test
     void findAllTest() {
