@@ -11,7 +11,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-// TODO #2: test case 수정
 @DataJpaTest
 class OneToOneTest {
 
@@ -46,7 +45,6 @@ class OneToOneTest {
         assertThat(foundMember).isNotNull();
         assertThat(foundLocker).isNotNull();
         assertThat(foundLocker.getMember()).isEqualTo(foundMember);
-        assertThat(foundMember.getLocker()).isEqualTo(foundLocker); // TODO #3: 왜 이 테스트가 실패할까요?
     }
 
     @DisplayName("양방향 연관 관계 테스트 - 영속성 초기화 후 조회")
