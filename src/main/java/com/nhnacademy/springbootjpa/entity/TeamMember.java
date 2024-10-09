@@ -1,9 +1,6 @@
 package com.nhnacademy.springbootjpa.entity;
 
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -11,21 +8,19 @@ import lombok.NoArgsConstructor;
 @Entity
 public class TeamMember {
 
-    @EmbeddedId
-    private TeamMemberPk id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
-    @MapsId("teamId")
     private Team team;
 
     @ManyToOne
-    @MapsId("memberId")
     private Member member;
 
     public TeamMember(Team team, Member member) {
         this.team = team;
         this.member = member;
-        this.id = new TeamMemberPk(team.getId(), member.getId());
     }
 
 }
