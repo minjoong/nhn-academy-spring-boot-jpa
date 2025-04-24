@@ -1,0 +1,6 @@
+spring:
+  config:
+    import:
+      - snippet-mysql-dev.yml
+      #- snippet-mysql-local.yml # dev 환경도 공유되고 있다면, 실시간을 DB 스키마를 변경하면서 작업하는 것은 로컬 DB 에 붙어서 하는 것이 좋다.
+      - snippet-jpa-logging.yml

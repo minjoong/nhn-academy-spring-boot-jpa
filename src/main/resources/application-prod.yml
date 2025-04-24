@@ -1,0 +1,7 @@
+spring:
+  config:
+    import:
+      - snippet-mysql-prod.yml
+  jpa:
+    hibernate:
+      ddl-auto: validate

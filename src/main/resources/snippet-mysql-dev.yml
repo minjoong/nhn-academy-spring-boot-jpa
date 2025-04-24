@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mini_dooray # 개발 환경 DB의 url
+    username: username # 개발 환경 DB의 username
+    password: password # 개발 환경 DB의 password
